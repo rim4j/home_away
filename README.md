@@ -98,3 +98,108 @@ npx shadcn@latest add breadcrumb calendar card checkbox dropdown-menu input labe
   - home
   - navbar
   - properties
+
+### Navbar - Setup
+
+- create
+
+- navbar
+  - DarkMode.tsx
+  - LinksDropdown.tsx
+  - Logo.tsx
+  - Navbar.tsx
+  - NavSearch.tsx
+  - SignOutLink.tsx
+  - UserIcon.tsx
+
+### Tailwind Custom Class
+
+globals.css
+
+```css
+@layer components {
+  .container {
+    @apply mx-auto max-w-6xl xl:max-w-7xl px-8;
+  }
+}
+```
+
+### Navbar - Structure
+
+```tsx
+import NavSearch from "./NavSearch";
+import LinksDropdown from "./LinksDropdown";
+import DarkMode from "./DarkMode";
+function Navbar() {
+  return (
+    <nav className='border-b'>
+      <div className='container flex flex-col sm:flex-row  sm:justify-between sm:items-center flex-wrap gap-4 py-8'>
+        <Logo />
+        <NavSearch />
+        <div className='flex gap-4 items-center '>
+          <DarkMode />
+          <LinksDropdown />
+        </div>
+      </div>
+    </nav>
+  );
+}
+export default Navbar;
+```
+
+```tsx
+import Navbar from "@/components/navbar/Navbar";
+
+return (
+  <html lang='en' suppressHydrationWarning>
+    <body className={inter.className}>
+      <Navbar />
+      <main className='container py-10'>{children}</main>
+    </body>
+  </html>
+);
+```
+
+### Logo
+
+```sh
+npm install react-icons
+
+```
+
+if you got some issue with npm or yarn you can use [bun](https://bun.sh/docs/installation) for installation
+
+[React Icons](https://react-icons.github.io/react-icons/)
+
+```tsx
+import Link from "next/link";
+import { LuTent } from "react-icons/lu";
+import { Button } from "../ui/button";
+
+function Logo() {
+  return (
+    <Button size='icon' asChild>
+      <Link href='/'>
+        <LuTent className='w-6 h-6' />
+      </Link>
+    </Button>
+  );
+}
+```
+
+### NavSearch
+
+```tsx
+import { Input } from "../ui/input";
+
+function NavSearch() {
+  return (
+    <Input
+      type='search'
+      placeholder='find a property...'
+      className='max-w-xs dark:bg-muted '
+    />
+  );
+}
+export default NavSearch;
+```
