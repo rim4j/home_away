@@ -31,3 +31,24 @@ export const metadata: Metadata = {
 ```
 
 - get a hold of the README.MD
+
+### Create Pages
+
+/app
+
+- bookings
+- checkout
+- favorites
+- profile
+- properties
+- rentals
+- reviews
+
+- new file - pageName/page.tsx
+
+```tsx
+function BookingsPage() {
+  return <h1 className='text-3xl'>BookingsPage</h1>;
+}
+export default BookingsPage;
+```
