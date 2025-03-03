@@ -3,6 +3,7 @@ import "./globals.css";
 
 import { Inter } from "next/font/google";
 import Navbar from "@/components/navbar/Navbar";
+import Providers from "./providers";
 
 export const metadata: Metadata = {
   title: "HomeAway",
@@ -19,8 +20,10 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <body className={inter.className}>
-        <Navbar />
-        <main className='container py-10'>{children}</main>
+        <Providers>
+          <Navbar />
+          <main className='container py-10'>{children}</main>
+        </Providers>
       </body>
     </html>
   );
