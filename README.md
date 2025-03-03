@@ -206,6 +206,8 @@ export default NavSearch;
 
 ### DarkMode
 
+[shadcn theme](https://ui.shadcn.com/themes)
+
 [Next.js Dark Mode](https://ui.shadcn.com/docs/dark-mode/next)
 
 ```sh
