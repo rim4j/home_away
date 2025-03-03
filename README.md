@@ -52,3 +52,49 @@ function BookingsPage() {
 }
 export default BookingsPage;
 ```
+
+### Shadcn/ui
+
+[Docs](https://ui.shadcn.com/)
+
+[Next Install](https://ui.shadcn.com/docs/installation/next)
+
+```sh
+npx shadcn@latest init
+
+```
+
+- New York
+- Zinc
+
+```sh
+npx shadcn@latest add button
+```
+
+```tsx
+import { Button } from "@/components/ui/button";
+
+function HomePage() {
+  return (
+    <div>
+      <h1 className='text-3xl'>HomePage</h1>
+      <Button variant='outline' size='lg' className='capitalize m-8'>
+        Click me
+      </Button>
+    </div>
+  );
+}
+export default HomePage;
+```
+
+```sh
+npx shadcn@latest add breadcrumb calendar card checkbox dropdown-menu input label popover scroll-area select separator table textarea skeleton
+```
+
+- components
+  - ui
+  - card
+  - form
+  - home
+  - navbar
+  - properties
