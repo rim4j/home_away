@@ -38,6 +38,8 @@
   --chart-5: hsl(27 87% 67%);
 }
 
+
+  
 .dark {
   --background: hsl(20 14.3% 4.1%);
   --foreground: hsl(60 9.1% 97.8%);

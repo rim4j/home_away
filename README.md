@@ -308,3 +308,77 @@ export function ModeToggle() {
   );
 }
 ```
+
+### UserIcon
+
+```tsx
+import { HiMiniUserCircle } from "react-icons/hi2";
+
+function UserIcon() {
+  return (
+    <HiMiniUserCircle className='w-6 h-6 bg-primary rounded-full text-white' />
+  );
+}
+export default UserIcon;
+```
+
+### Links Data
+
+- create utils/links.ts
+
+```ts
+type NavLink = {
+  href: string;
+  label: string;
+};
+
+export const links: NavLink[] = [
+  { href: "/", label: "home" },
+  { href: "/favorites ", label: "favorites" },
+  { href: "/bookings ", label: "bookings" },
+  { href: "/reviews ", label: "reviews" },
+  { href: "/rentals/create ", label: "create rental" },
+  { href: "/rentals", label: "my rentals" },
+  { href: "/profile ", label: "profile" },
+];
+```
+
+### LinksDropdown
+
+```tsx
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "../ui/button";
+import { LuAlignLeft } from "react-icons/lu";
+import UserIcon from "./UserIcon";
+import { links } from "@/utils/links";
+import Link from "next/link";
+
+const LinksDropdown = () => {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button
+          variant='outline'
+          className='cursor-pointer flex gap-4 max-w-[100px]'
+        >
+          <LuAlignLeft />
+          <UserIcon />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className='w-52' align='start' sideOffset={10}>
+        {links.map((item, i) => (
+          <DropdownMenuItem key={i}>
+            <Link href={item.href}>{item.label}</Link>
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
+export default LinksDropdown;
+```
